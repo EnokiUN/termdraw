@@ -15,7 +15,7 @@ fn main() {
         hook(p);
     }));
     enable_raw_mode().unwrap();
-    execute!(stdout(), EnableMouseCapture).unwrap();
+    execute!(stdout(), EnableMouseCapture, Hide).unwrap();
     let mut colour = Color::White;
     loop {
         match event::read().unwrap() {
@@ -93,6 +93,13 @@ fn main() {
             _ => {}
         }
     }
-    execute!(stdout(), Clear(ClearType::All)).unwrap();
+    execute!(
+        stdout(),
+        DisableMouseCapture,
+        ResetColor,
+        Clear(ClearType::All),
+        Show
+    )
+    .unwrap();
     disable_raw_mode().unwrap();
 }
