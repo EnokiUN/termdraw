@@ -1,8 +1,11 @@
 use std::io::stdout;
 
 use crossterm::{
-    cursor::MoveTo,
-    event::{self, EnableMouseCapture, Event, KeyCode, KeyModifiers, MouseButton, MouseEventKind},
+    cursor::{Hide, MoveTo, Show},
+    event::{
+        self, DisableMouseCapture, EnableMouseCapture, Event, KeyCode, KeyModifiers, MouseButton,
+        MouseEventKind,
+    },
     execute,
     style::{Color, Print, ResetColor, SetBackgroundColor},
     terminal::{disable_raw_mode, enable_raw_mode, Clear, ClearType},
@@ -33,8 +36,6 @@ fn main() {
                         MoveTo(evt.column, evt.row),
                         SetBackgroundColor(colour),
                         Print(" "),
-                        ResetColor,
-                        MoveTo(0, 0)
                     )
                     .unwrap();
                 }
@@ -43,7 +44,7 @@ fn main() {
             Event::Key(key) => match key.code {
                 KeyCode::Char('q') => break,
                 KeyCode::Char('l') if key.modifiers.contains(KeyModifiers::CONTROL) => {
-                    execute!(stdout(), Clear(ClearType::All)).unwrap();
+                    execute!(stdout(), ResetColor, Clear(ClearType::All)).unwrap();
                 }
                 KeyCode::Char('1') => {
                     colour = Color::White;
