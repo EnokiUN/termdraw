@@ -14,6 +14,14 @@ use crossterm::{
 fn main() {
     let hook = std::panic::take_hook();
     std::panic::set_hook(Box::new(move |p| {
+        execute!(
+            stdout(),
+            DisableMouseCapture,
+            ResetColor,
+            Clear(ClearType::All),
+            Show
+        )
+        .unwrap();
         disable_raw_mode().unwrap();
         hook(p);
     }));
