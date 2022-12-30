@@ -43,3 +43,11 @@ cargo install --git https://github.com/enokiun/termdraw
 
 > **Note**
 > Colours may display differently depending on your terminal emulator.
+
+## Other Directly Related Projects
+
+- [termdrawserver](https://github.com/enokiun/termdrawserver): A collaborative server
+  for termdraw.
+[termdrawclient](https://github.com/enokiun/termdrawclient): A termdrawserver client.
+[termdrawascii](https://github.com/enokiun/termdrawascii): A tool to quickly try
+to draw an image on a termdrawserver instance.
