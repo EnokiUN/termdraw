@@ -48,6 +48,6 @@ cargo install --git https://github.com/enokiun/termdraw
 
 - [termdrawserver](https://github.com/enokiun/termdrawserver): A collaborative server
   for termdraw.
-[termdrawclient](https://github.com/enokiun/termdrawclient): A termdrawserver client.
-[termdrawascii](https://github.com/enokiun/termdrawascii): A tool to quickly try
+- [termdrawclient](https://github.com/enokiun/termdrawclient): A termdrawserver client.
+- [termdrawascii](https://github.com/enokiun/termdrawascii): A tool to quickly try
 to draw an image on a termdrawserver instance.
